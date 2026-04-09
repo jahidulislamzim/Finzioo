@@ -7,7 +7,7 @@ const AccountList = ({ accounts, onEdit, onDelete, onView, loadingId }) => {
     <div className="account-list">
       {accounts.map((account) => (
         <AccountCard
-          key={account.accountId}
+          key={account.account}
           account={account}
           onEdit={onEdit}
           onDelete={onDelete}

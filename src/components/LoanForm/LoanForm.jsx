@@ -76,7 +76,7 @@ const LoanForm = ({ onSave, loanToEdit, onCancel }) => {
 
     try {
       if (loanToEdit) {
-        await onSave({ ...loanToEdit, ...loanData });
+        await onSave({loanToEdit, loanData });
       } else {
         await onSave(loanData);
       }

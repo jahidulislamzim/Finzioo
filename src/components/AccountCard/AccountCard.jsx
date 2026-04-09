@@ -8,7 +8,7 @@ import useAppContext from '../../hooks/useAppContext';
 const AccountCard = ({ account, onEdit, onDelete, onView, loadingId }) => {
   const { formatCurrency } = useAppContext();
   const isClosed = account.status === STATUS.CLOSED;
-  const isDeleted = account.deletedAt !== null && account.deletedAt !== undefined;
+  const isDeleted = account.deletedA !== null && account.deletedA !== undefined;
   const id = account.id || account.accountId;
 
   const getAccountIcon = (type = '') => {
@@ -22,11 +22,11 @@ const AccountCard = ({ account, onEdit, onDelete, onView, loadingId }) => {
   };
 
   return (
-    <div className={`account-list-card ${account.accountType?.toLowerCase() || ''} ${isClosed ? 'closed' : ''} ${isDeleted ? 'is-deleted' : ''}`}>
+    <div className={`account-list-card ${account.accountTye?.toLowerCase() || ''} ${isClosed ? 'closed' : ''} ${isDeleted ? 'is-deleted' : ''}`}>
       <div className="card-top">
         <div className="account-identity">
           <div className="type-icon">
-            <i className={`fad ${getAccountIcon(account.accountType)}`}></i>
+            <i className={`fad ${getAccountIcon(account.accoutType)}`}></i>
           </div>
           <div className="account-info">
             <h3 className="account-name">{account.accountName || 'Unnamed Account'}</h3>
