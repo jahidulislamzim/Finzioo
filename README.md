@@ -72,6 +72,12 @@ src/
    npm run dev
    ```
 
+5. **Demo Access**
+```bash
+  Email: demo@finzioo.com
+  Password: 123456
+```
+
 ## 💡 Development Highlights
 
 - **Granular Logic Encapsulation:** While context is used for auth and theme, feature-specific Firestore state management is abstracted efficiently behind custom hooks (`useAccounts`, `useTransactions`, `useLoans`, `usePagination`).
