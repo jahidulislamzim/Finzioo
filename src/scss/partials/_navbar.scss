@@ -1,0 +1,44 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $dark-card-bg-color;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid $border-color;
+
+  .navbar-brand {
+    .navbar-item {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: $text-color;
+    }
+  }
+
+  .navbar-menu {
+    .navbar-start {
+      display: flex;
+      align-items: center;
+
+      .navbar-item {
+        margin-left: 1.5rem;
+        font-size: 1.1rem;
+        color: $light-text-color;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid transparent;
+        transition: all 0.3s ease;
+
+        &:hover {
+          color: $text-color;
+          border-bottom: 2px solid $primary-color;
+        }
+
+        &.is-active {
+          font-weight: bold;
+          color: $text-color;
+          border-bottom: 2px solid $primary-color;
+        }
+      }
+    }
+  }
+}

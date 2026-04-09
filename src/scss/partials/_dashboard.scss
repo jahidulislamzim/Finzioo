@@ -1,0 +1,58 @@
+.dashboard {
+  padding: 2rem;
+  border-radius: 8px;
+
+  .summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+    .card {
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border: 1px solid $border-color;
+
+      h4 {
+        margin: 0;
+        font-size: 1.2rem;
+        color: $light-text-color;
+      }
+
+      p {
+        margin: 0.5rem 0 0;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: $text-color;
+      }
+    }
+  }
+
+  .accounts {
+    margin-top: 2rem;
+
+    .account {
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid $border-color;
+
+      h4 {
+        margin: 0;
+        font-size: 1.2rem;
+        color: $text-color;
+      }
+
+      p {
+        margin: 0;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: $secondary-color;
+      }
+    }
+  }
+}

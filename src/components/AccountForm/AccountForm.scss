@@ -1,0 +1,65 @@
+@use '../../scss/mixins' as *;
+
+.account-form {
+  padding: 1rem;
+  background: transparent;
+
+  .account-info {
+    grid-column: 1 / -1;
+    background: rgba(139, 92, 246, 0.05);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(139, 92, 246, 0.1);
+    margin-bottom: 2rem;
+    text-align: center;
+
+    p {
+      margin: 0.5rem 0;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--accent-violet);
+      font-family: 'Outfit', sans-serif;
+    }
+  }
+
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 2.5rem;
+
+    @include respond-below(sm) {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .full-width {
+      grid-column: 1 / -1;
+    }
+  }
+
+  .toggle-switch-group {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-top: 1rem;
+
+    label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text-soft);
+      margin-bottom: 0px;
+      display: block;
+    }
+  }
+
+  .form-actions {
+    grid-column: 1 / -1;
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+}

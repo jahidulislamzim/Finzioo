@@ -1,0 +1,57 @@
+.circular-progress-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 120px;
+  height: 120px;
+
+  .circular-progress {
+    transform: rotate(-90deg);
+
+    .circular-progress-background {
+      fill: none;
+      stroke: var(--bg-primary);
+      stroke-width: 8;
+    }
+
+    .circular-progress-bar {
+      fill: none;
+      stroke: var(--accent-emerald);
+      stroke-width: 8;
+      stroke-linecap: round;
+      transition: stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+      &.exceeded {
+        stroke: var(--accent-rose);
+      }
+    }
+  }
+
+  .circular-progress-text {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .percentage {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text-main);
+      font-family: 'Outfit', sans-serif;
+
+      &.exceeded {
+        color: var(--accent-rose);
+      }
+    }
+
+    .progress-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  }
+}

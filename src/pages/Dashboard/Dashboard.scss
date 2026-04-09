@@ -1,0 +1,377 @@
+@use '../../scss/mixins' as *;
+
+.dashboard-page {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  .page-header {
+    margin-bottom: 1rem;
+    .header-text {
+      h2 {
+        font-size: 3.2rem;
+        font-weight: 800;
+        color: var(--text-main);
+        letter-spacing: -0.02em;
+      }
+      .subtitle {
+        font-size: 1.6rem;
+        color: var(--text-soft);
+        margin-top: 0.5rem;
+      }
+    }
+  }
+
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    grid-template-rows: auto auto;
+    gap: 3rem;
+
+    section {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-subtle);
+      transition: var(--transition);
+
+      &:hover {
+        box-shadow: var(--shadow-lg);
+      }
+
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2.5rem;
+
+        h3 {
+          font-size: 1.8rem;
+          font-weight: 700;
+          color: var(--text-main);
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+
+          i {
+            color: var(--accent-violet);
+            font-size: 1.6rem;
+          }
+        }
+      }
+    }
+
+    .accounts-section {
+      grid-column: 1;
+      grid-row: 1;
+      
+      .card-carousel {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+
+        @include respond-below(sm) {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-areas: 
+            "card card"
+            "left right";
+          gap: 1.5rem;
+          justify-items: center;
+        }
+
+        .card-nav {
+          background: var(--bg-tertiary);
+          border: none;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: var(--text-soft);
+          transition: var(--transition);
+
+          &:hover {
+            background: var(--accent-violet);
+            color: white;
+            box-shadow: var(--shadow-md);
+          }
+
+          @include respond-below(sm) {
+            &:first-of-type { grid-area: left; justify-self: end; margin-right: 1rem; }
+            &:last-of-type { grid-area: right; justify-self: start; margin-left: 1rem; }
+          }
+        }
+
+        .card-display {
+          flex: 1;
+          display: flex;
+          justify-content: center;
+          perspective: 1000px;
+
+          @include respond-below(sm) {
+            grid-area: card;
+            width: 100%;
+          }
+
+          .premium-card {
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 1.6/1;
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            border-radius: 20px;
+            padding: 2.5rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            @include respond-below(sm) {
+              padding: 1.5rem;
+              aspect-ratio: auto;
+              height: 200px;
+            }
+
+            &::before {
+              content: '';
+              position: absolute;
+              top: -50%;
+              left: -50%;
+              width: 200%;
+              height: 200%;
+              background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+              pointer-events: none;
+            }
+
+            .card-chip {
+              width: 45px;
+              height: 35px;
+              background: linear-gradient(135deg, #ffd700 0%, #daa520 100%);
+              border-radius: 6px;
+              position: relative;
+              margin-bottom: 2rem;
+
+              &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 70%;
+                height: 70%;
+                border: 1px solid rgba(0,0,0,0.1);
+                border-radius: 4px;
+              }
+            }
+
+            .card-top {
+              position: absolute;
+              top: 2.5rem;
+              right: 2.5rem;
+              display: flex;
+              flex-direction: column;
+              align-items: flex-end;
+              gap: 0.5rem;
+
+              .card-bank-name {
+                font-size: 1.2rem;
+                font-weight: 600;
+                opacity: 0.8;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+              }
+
+              .card-status {
+                font-size: 1rem;
+                background: rgba(255, 255, 255, 0.2);
+                padding: 2px 8px;
+                border-radius: 4px;
+                font-weight: 700;
+              }
+            }
+
+            .card-middle {
+              .balance-label {
+                font-size: 1.4rem;
+                font-weight: 300;
+                opacity: 0.9;
+              }
+              .balance-value {
+                font-size: 2.8rem;
+                font-weight: 700;
+                margin-top: 0.5rem;
+                font-family: 'Outfit', sans-serif;
+
+                @include respond-below(sm) {
+                  font-size: 2.2rem;
+                }
+              }
+            }
+
+            .card-bottom {
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-end;
+
+              .card-info {
+                display: flex;
+                flex-direction: column;
+                .info-label {
+                  font-size: 1rem;
+                  opacity: 0.7;
+                  text-transform: uppercase;
+                }
+                .info-value {
+                  font-size: 1.4rem;
+                  font-weight: 600;
+                }
+              }
+
+              .card-number {
+                font-family: 'Courier New', Courier, monospace;
+                font-size: 1.6rem;
+                letter-spacing: 2px;
+                opacity: 0.9;
+              }
+            }
+
+            /* Custom colors based on account type */
+            &.savings { background: linear-gradient(135deg, #10b981 0%, #059669 100%); box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3); }
+            &.checking { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3); }
+            &.credit { background: linear-gradient(135deg, #1f2937 0%, #111827 100%); box-shadow: 0 20px 40px rgba(31, 41, 55, 0.3); }
+          }
+        }
+      }
+    }
+
+    .overview-section {
+      grid-column: 2;
+      grid-row: 1;
+
+      .summary-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+
+        @include respond-below(sm) {
+          grid-template-columns: 1fr;
+        }
+
+        .stat-card {
+          padding: 2rem;
+          border-radius: var(--radius-md);
+          background: var(--bg-tertiary);
+          display: flex;
+          align-items: center;
+          gap: 1.5rem;
+          transition: var(--transition);
+
+          &:hover {
+            transform: translateY(-3px);
+            background: var(--surface-hover);
+          }
+
+          .stat-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+          }
+
+          .stat-info {
+            display: flex;
+            flex-direction: column;
+            .stat-label {
+              font-size: 1.3rem;
+              color: var(--text-soft);
+              font-weight: 500;
+            }
+            .stat-value {
+              font-size: 1.8rem;
+              font-weight: 700;
+              font-family: 'Outfit', sans-serif;
+              
+              &.text-emerald { color: var(--accent-emerald); }
+              &.text-rose { color: var(--accent-rose); }
+              &.text-azure { color: var(--accent-azure); }
+              &.text-violet { color: var(--accent-violet); }
+            }
+          }
+
+          &.income .stat-icon { background: rgba(16, 185, 129, 0.1); color: var(--accent-emerald); }
+          &.expense .stat-icon { background: rgba(239, 68, 68, 0.1); color: var(--accent-rose); }
+          &.balance .stat-icon { background: rgba(59, 130, 246, 0.1); color: var(--accent-azure); }
+          &.savings .stat-icon { background: rgba(139, 92, 246, 0.1); color: var(--accent-violet); }
+        }
+      }
+    }
+
+    .budget-section {
+      grid-column: 1;
+      grid-row: 2;
+
+      .budget-flex {
+        display: flex;
+        justify-content: space-around;
+        padding: 1rem 0;
+
+        @include respond-below(sm) {
+          flex-direction: column;
+          gap: 2.5rem;
+        }
+
+        .budget-progress-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 1.5rem;
+          
+          span {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-soft);
+          }
+        }
+      }
+    }
+
+    .history-section {
+      grid-column: 2;
+      grid-row: 2;
+
+      .recent-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .empty-state {
+          text-align: center;
+          padding: 3rem;
+          color: var(--text-soft);
+          font-style: italic;
+        }
+      }
+    }
+  }
+
+  @include respond-below(xl) {
+    .dashboard-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+
+      section {
+        grid-column: 1 !important;
+        grid-row: auto !important;
+      }
+    }
+  }
+}

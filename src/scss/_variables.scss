@@ -1,0 +1,44 @@
+// src/scss/_variables.scss
+
+// Dark Theme Colors
+$primary-color: #BB86FC; // A bright, engaging purple for primary actions and highlights.
+$secondary-color: #03DAC6; // A vibrant teal for secondary elements and accents.
+$accent-color: #CF6679; // A contrasting reddish-pink for errors, alerts, or important accents.
+
+$dark-bg-color: #121212; // A deep, near-black for the main background to reduce eye strain.
+$dark-card-bg-color: #1E1E1E; // A slightly lighter shade for UI elements like cards and modals.
+
+$text-color: #FFFFFF; // Pure white for primary text for maximum readability.
+$light-text-color: rgba(255, 255, 255, 0.7); // A softer white for secondary text, labels, and icons.
+$dark-text-color: #121212;
+$white: #ffffff;
+$border-color: #444;
+
+// Input Colors - Professional Dark Theme
+$input-bg-color: transparent;
+$input-text-color: #E0E0E0; // A light, readable off-white for input text.
+$input-label-color: #8D8D8D; // A lighter ash for labels.
+$input-border-color: #4A4A4A; // A solid ash/gray for the border.
+$input-placeholder-color: #757575; // A subtle, darker ash for placeholder text.
+
+// Button Colors
+$info-color: #17a2b8;
+$warning-color: #ffc107;
+$success-color: #28a745;
+$error-color: #dc3545;
+$disabled-color: #ccc;
+
+// Fonts
+$primary-font: 'Helvetica Neue', sans-serif;
+
+// Font Sizes (1rem = 10px)
+$font-size-xs: 1.2rem; // 12px
+$font-size-sm: 1.4rem; // 14px
+$font-size-md: 1.6rem; // 16px
+$font-size-lg: 1.8rem; // 18px
+$font-size-xl: 2.0rem; // 20px
+$font-size-xxl: 2.4rem; // 24px
+$font-size-hero: 4.8rem; // 48px
+
+// Spacing
+$spacing-unit: 1rem;

@@ -1,0 +1,18 @@
+.header {
+  padding: 2rem;
+  background-color: $dark-bg-color;
+  border-bottom: 1px solid $border-color;
+  margin-bottom: 2rem;
+
+  h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: $text-color;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.2rem;
+    color: $light-text-color;
+  }
+}

@@ -1,0 +1,69 @@
+@use '../../scss/mixins' as *;
+
+.pagination-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 4rem;
+  padding: 1.5rem 3rem;
+  background: var(--bg-secondary);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-lg), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+
+  .page-numbers {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    .btn.page-num {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem !important;
+      
+      &.active {
+        box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  .pagination-nav-btn {
+    i {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+// Mobile responsiveness
+@include respond-below(md) {
+  .pagination-container {
+    gap: 1.5rem;
+    padding: 1rem 1.5rem;
+    width: 95%;
+    
+    .page-numbers {
+      gap: 0.5rem;
+      
+      .btn.page-num {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 1.2rem !important;
+      }
+    }
+
+    .pagination-nav-btn {
+      width: 36px !important;
+      height: 36px !important;
+      
+      i {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}

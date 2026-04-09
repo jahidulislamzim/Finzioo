@@ -1,0 +1,87 @@
+@use '../../scss/mixins' as *;
+
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  background-color: var(--bg-primary);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.05) 0px, transparent 50%);
+  background-attachment: fixed;
+  transition: var(--transition);
+
+  .main-content-wrapper {
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    // sidebar 260px + left offset 1.6rem + gap 1.6rem
+    margin-left: calc(260px + 3.2rem);
+    padding: 3.2rem 3.2rem 5rem;
+    min-height: 100vh;
+    transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    .content-container {
+      width: 100%;
+      max-width: 1400px;
+      animation: page-fade-in 0.5s ease-out;
+    }
+  }
+}
+
+// When sidebar collapses, shrink content margin
+body.sidebar-collapsed .main-content-wrapper {
+  margin-left: calc(72px + 3.2rem);
+}
+
+@include respond-below(md) {
+  .app-layout .main-content-wrapper {
+    margin-left: 0 !important;
+    padding: 7rem 1.6rem 5rem;
+  }
+}
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Common Header Style across pages */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4rem;
+  padding: 1rem 0;
+
+  h2 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-header);
+    letter-spacing: -0.025em;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: 1.2rem;
+  }
+
+  @include respond-below(md) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    
+    .header-actions {
+      width: 100%;
+      flex-wrap: wrap;
+    }
+  }
+}

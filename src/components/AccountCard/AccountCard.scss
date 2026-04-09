@@ -1,0 +1,140 @@
+.account-list-card {
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  border: 1px solid var(--border-subtle);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent-azure);
+  }
+
+  &.closed {
+    opacity: 0.6;
+    filter: grayscale(0.5);
+  }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .account-identity {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+
+      .type-icon {
+        width: 45px;
+        height: 45px;
+        background: var(--surface);
+        border-radius: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.8rem;
+        color: var(--accent-azure);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .account-info {
+        display: flex;
+        flex-direction: column;
+        .account-name {
+          font-size: 1.6rem;
+          font-weight: 700;
+          color: var(--text-main);
+        }
+        .account-number {
+          font-size: 1.2rem;
+          color: var(--text-soft);
+          font-family: monospace;
+          letter-spacing: 1px;
+        }
+      }
+    }
+
+    .account-status {
+      .status-pill {
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        
+        &.active {
+          background: rgba(16, 185, 129, 0.1);
+          color: var(--accent-emerald);
+        }
+        &.inactive {
+          background: rgba(239, 68, 68, 0.1);
+          color: var(--accent-rose);
+        }
+      }
+    }
+  }
+
+  .card-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-subtle);
+
+    .balance-info {
+      display: flex;
+      flex-direction: column;
+      .label {
+        font-size: 1.1rem;
+        color: var(--text-soft);
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+      .value {
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: var(--text-main);
+        font-family: 'Outfit', sans-serif;
+      }
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 1rem;
+
+      .action-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        border: 1px solid var(--border-subtle);
+        background: var(--surface);
+        color: var(--text-soft);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: var(--transition);
+
+        &:hover {
+          color: white;
+        }
+
+        &.view:hover { background: var(--accent-azure); border-color: var(--accent-azure); }
+        &.edit:hover { background: var(--accent-violet); border-color: var(--accent-violet); }
+        &.delete:hover { background: var(--accent-rose); border-color: var(--accent-rose); }
+      }
+    }
+  }
+
+  /* Theme-specific accents based on type */
+  &.savings .type-icon { color: var(--accent-emerald); }
+  &.checking .type-icon { color: var(--accent-azure); }
+  &.credit .type-icon { color: var(--accent-rose); }
+}

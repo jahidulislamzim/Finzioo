@@ -1,0 +1,25 @@
+/*============================================
+    BASE
+============================================*/
+
+body {
+    font-family: $primary-font;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    color: $text-color;
+    background-color: $background-color;
+}
+
+.dark-mode {
+    color: $dark-text-color;
+    background-color: $dark-background-color;
+}
+
+a {
+    color: $primary-color;
+    text-decoration: none;
+
+    &:hover {
+        color: $primary-color-light;
+    }
+}

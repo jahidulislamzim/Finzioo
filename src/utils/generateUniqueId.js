@@ -1,0 +1,1 @@
+export const generateUniqueId = (namespace) => `${namespace}_${new Date().toISOString().replace(/\D/g, '')}`;

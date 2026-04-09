@@ -1,0 +1,94 @@
+@use '../../scss/mixins' as *;
+
+.loans-page {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  &.amber-theme {
+    .page-header h2 {
+      color: var(--accent-amber);
+    }
+  }
+
+  .page-header {
+    margin-bottom: 1rem;
+    .header-text {
+      h2 {
+        font-size: 3.2rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+      .subtitle {
+        font-size: 1.6rem;
+        color: var(--text-soft);
+        margin-top: 0.5rem;
+      }
+    }
+  }
+
+  .loans-content {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: 3rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-subtle);
+    transition: var(--transition);
+
+    &:hover {
+      box-shadow: var(--shadow-lg);
+    }
+
+    .loans-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2.5rem;
+
+      .empty-state {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 6rem 0;
+        color: var(--text-soft);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+
+        i {
+          font-size: 5rem;
+          opacity: 0.2;
+          color: var(--accent-amber);
+        }
+
+        p {
+          font-size: 1.8rem;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+@include respond-below(md) {
+  .loans-page {
+    .page-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2rem;
+
+      .header-actions {
+        width: 100%;
+        .btn {
+          width: 100%;
+        }
+      }
+    }
+    
+    .loans-content {
+      padding: 1.5rem;
+      .loans-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+/*============================================
+    LAYOUT
+============================================*/
+
+.container {
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+#root {
+    @extend .container;
+    text-align: center;
+}

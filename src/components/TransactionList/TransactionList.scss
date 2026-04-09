@@ -1,0 +1,8 @@
+@use '../../scss' as *;
+
+.transaction-list-container {
+  .transaction-list {
+    list-style-type: none;
+    padding: 0;
+  }
+}

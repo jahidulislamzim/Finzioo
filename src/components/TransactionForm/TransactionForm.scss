@@ -1,0 +1,44 @@
+@use '../../scss/mixins' as *;
+
+.add-transaction-form {
+  padding: 1rem;
+  background: transparent;
+
+  .error-message {
+    grid-column: 1 / -1;
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--accent-rose);
+    padding: 1.2rem;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 2.5rem;
+
+    @include respond-below(sm) {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .full-width {
+      grid-column: 1 / -1;
+    }
+  }
+
+  .form-actions {
+    grid-column: 1 / -1;
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+}

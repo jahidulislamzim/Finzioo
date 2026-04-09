@@ -1,0 +1,131 @@
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+  width: 100%;
+
+  .label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-soft);
+    letter-spacing: 0.5px;
+    margin-left: 0.4rem;
+  }
+
+  .input {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 1.2rem 1.6rem;
+    font-size: 1.4rem;
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    transition: var(--transition);
+    width: 100%;
+    box-sizing: border-box;
+
+    &::placeholder {
+      color: var(--text-soft);
+      opacity: 0.5;
+    }
+
+    &:hover {
+      border-color: var(--border-medium);
+      background: var(--surface-hover);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--accent-violet);
+      background: var(--bg-secondary);
+      box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
+      transform: translateY(-1px);
+    }
+
+    &[type="number"] {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    &[type="date"] {
+      cursor: pointer;
+      padding-right: 1rem;
+    }
+  }
+
+  textarea.input {
+    min-height: 100px;
+    resize: vertical;
+    line-height: 1.6;
+  }
+
+  // ── Custom Select Wrapper ────────────────
+  .select-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    select.input {
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+      padding-right: 4rem;
+      // Remove default background arrow
+      background-image: none;
+
+      // Style native options
+      option {
+        background-color: var(--bg-secondary);
+        color: var(--text-main);
+        font-size: 1.4rem;
+        font-family: 'Inter', sans-serif;
+        padding: 1rem 1.4rem;
+      }
+
+      option:checked {
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(139, 92, 246, 0.05));
+        color: var(--accent-violet);
+        font-weight: 600;
+      }
+
+      // When the wrapper is open, apply focused styles
+      .open & {
+        border-color: var(--accent-violet);
+        background: var(--bg-secondary);
+        box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
+      }
+    }
+
+    // Animated chevron icon
+    .select-chevron {
+      position: absolute;
+      right: 1.4rem;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-soft);
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease;
+
+      i {
+        font-size: 1.3rem;
+        display: block;
+      }
+    }
+
+    // Rotate chevron when open
+    &.open .select-chevron {
+      transform: rotate(180deg);
+      color: var(--accent-violet);
+    }
+
+    // Hover state — give a nudge hint
+    &:not(.open):hover .select-chevron {
+      transform: translateY(2px);
+      color: var(--text-main);
+    }
+  }
+}

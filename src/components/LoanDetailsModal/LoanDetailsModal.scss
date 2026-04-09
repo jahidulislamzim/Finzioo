@@ -1,0 +1,161 @@
+.loan-details-card-container {
+  width: 100%;
+}
+
+.loan-details-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  color: var(--text-main);
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 2rem;
+
+    .amount-section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      .amount-label {
+        font-size: 1.1rem;
+        color: var(--text-soft);
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+
+      .amount-value {
+        font-size: 3rem;
+        font-weight: 800;
+        font-family: 'Outfit', sans-serif;
+        color: var(--text-main);
+      }
+    }
+
+    .status-indicator-container {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: var(--bg-primary);
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      border: 1px solid var(--border-subtle);
+
+      .status-indicator {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        
+        &.active { background: var(--accent-emerald); box-shadow: 0 0 8px var(--accent-emerald); }
+        &.inactive { background: var(--text-soft); }
+      }
+
+      .loan-status {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-main);
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .card-middle {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    
+    .person-name {
+      font-size: 2rem;
+      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+      color: var(--text-main);
+    }
+
+    .loan-number {
+      font-size: 1.3rem;
+      color: var(--text-soft);
+      font-family: monospace;
+      letter-spacing: 2px;
+    }
+  }
+
+  .card-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 2rem;
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .detail-item, .notes-section, .outstanding-section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      .detail-label {
+        font-size: 1rem;
+        color: var(--text-soft);
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+
+      .detail-value {
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: var(--text-main);
+
+        &.highlighted {
+          font-weight: 700;
+          color: var(--accent-amber);
+        }
+      }
+    }
+
+    .outstanding-section {
+      background: rgba(245, 158, 11, 0.05); /* Amber very faint */
+      padding: 1.5rem;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(245, 158, 11, 0.2);
+    }
+
+    .notes-section {
+      background: var(--bg-primary);
+      padding: 1.5rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+
+      .detail-value {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: var(--text-secondary, var(--text-main));
+        opacity: 0.9;
+        font-style: italic;
+      }
+    }
+
+    .dates-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+      
+      .detail-item {
+        .detail-value {
+          font-size: 1.1rem;
+          color: var(--text-soft);
+        }
+      }
+    }
+  }
+}

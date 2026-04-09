@@ -1,0 +1,102 @@
+.budgets-page {
+  .header {
+    margin-bottom: 2rem;
+  }
+
+  .create-budget-form {
+    margin-bottom: 2rem;
+    background-color: $dark-card-bg-color;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 1px solid $border-color;
+
+    h3 {
+      margin-top: 0;
+      color: $text-color;
+    }
+
+    form {
+      display: flex;
+      gap: 1rem;
+
+      input {
+        flex-grow: 1;
+        padding: 0.75rem;
+        border: 1px solid $border-color;
+        border-radius: 4px;
+        background-color: $dark-bg-color;
+        color: $text-color;
+      }
+
+      button {
+        padding: 0.75rem 1.5rem;
+        background-color: $primary-color;
+        color: $text-color;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: lighten($primary-color, 10%);
+        }
+      }
+    }
+  }
+
+  .budgets-list {
+    h3 {
+      margin-top: 0;
+      color: $text-color;
+    }
+
+    .budget-card {
+      background-color: $dark-card-bg-color;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      border: 1px solid $border-color;
+
+      .budget-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        h4 {
+          margin: 0;
+          font-size: 1.4rem;
+          color: $text-color;
+        }
+
+        .budget-amounts {
+          font-size: 1.2rem;
+          .spent {
+            color: $accent-color;
+            font-weight: bold;
+          }
+          .limit {
+            color: $secondary-color;
+          }
+        }
+      }
+
+      .progress-bar {
+        width: 100%;
+        height: 20px;
+        background-color: $dark-bg-color;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid $border-color;
+
+        .progress {
+          height: 100%;
+          background-color: $primary-color;
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+}

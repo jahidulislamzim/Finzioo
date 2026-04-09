@@ -1,0 +1,47 @@
+@use '../../scss/mixins' as *;
+
+.add-loan-form {
+  padding: 1rem;
+  background: transparent;
+
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 2.5rem;
+
+    @include respond-below(sm) {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .full-width {
+      grid-column: 1 / -1;
+    }
+  }
+
+  .toggle-switch-group {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-top: 1rem;
+
+    label {
+      margin-bottom: 0px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text-soft);
+      cursor: pointer;
+    }
+  }
+
+  .form-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+}

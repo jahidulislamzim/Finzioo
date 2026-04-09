@@ -1,0 +1,213 @@
+@use '../../scss/mixins' as *;
+
+.loan-list-card {
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  padding: 2.2rem;
+  border: 1px solid var(--border-subtle);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent-amber);
+  }
+
+  &.closed {
+    opacity: 0.6;
+    filter: grayscale(0.5);
+  }
+
+  &.is-deleted {
+    opacity: 0.6;
+    filter: grayscale(0.5);
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .person-identity {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+
+      .person-avatar {
+        width: 45px;
+        height: 45px;
+        background: var(--surface);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2.4rem;
+        color: var(--accent-amber);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .person-info {
+        display: flex;
+        flex-direction: column;
+        .name {
+          font-size: 1.6rem;
+          font-weight: 700;
+          color: var(--text-main);
+        }
+        .loan-number {
+          font-size: 1.1rem;
+          color: var(--text-soft);
+          font-family: monospace;
+          letter-spacing: 1px;
+        }
+      }
+    }
+
+    .loan-status {
+      .status-pill {
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        background: rgba(245, 158, 11, 0.1);
+        color: var(--accent-amber);
+        border: 1px solid rgba(245, 158, 11, 0.2);
+      }
+    }
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .amount-main {
+      display: flex;
+      flex-direction: column;
+      .label {
+        font-size: 1rem;
+        color: var(--text-soft);
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+      .value {
+        font-size: 2.4rem;
+        font-weight: 800;
+        color: var(--text-main);
+        font-family: 'Outfit', sans-serif;
+      }
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      background: var(--bg-primary);
+      border-radius: 12px;
+
+      .stat-item {
+        display: flex;
+        flex-direction: column;
+        .stat-label {
+          font-size: 0.9rem;
+          color: var(--text-soft);
+          text-transform: uppercase;
+          font-weight: 500;
+        }
+        .stat-value {
+          font-size: 1.4rem;
+          font-weight: 700;
+          color: var(--text-main);
+          
+          &.highlight {
+            color: var(--accent-amber);
+          }
+        }
+      }
+    }
+  }
+
+  .card-notes {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(var(--accent-amber-rgb), 0.05);
+    border-radius: 8px;
+    border-left: 3px solid var(--accent-amber);
+
+    i {
+      font-size: 1.2rem;
+      color: var(--accent-amber);
+      margin-top: 2px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: var(--text-soft);
+      font-style: italic;
+      line-height: 1.4;
+    }
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-subtle);
+
+    .due-date-info {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: var(--text-soft);
+      font-size: 1.2rem;
+      font-weight: 500;
+
+      i {
+        font-size: 1.4rem;
+      }
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 0.8rem;
+
+      .action-btn {
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        border: 1px solid var(--border-subtle);
+        background: var(--surface);
+        color: var(--text-soft);
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: var(--transition);
+
+        &:hover {
+          color: white;
+        }
+
+        &.view:hover { background: var(--accent-azure); border-color: var(--accent-azure); }
+        &.edit:hover { background: var(--accent-violet); border-color: var(--accent-violet); }
+        &.delete:hover { background: var(--accent-rose); border-color: var(--accent-rose); }
+      }
+    }
+  }
+
+  @include respond-below(sm) {
+    padding: 1.5rem;
+    
+    .card-body .stats-row {
+      grid-template-columns: 1fr;
+    }
+  }
+}

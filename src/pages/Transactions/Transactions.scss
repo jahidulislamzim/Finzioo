@@ -1,0 +1,112 @@
+@use '../../scss/mixins' as *;
+
+.transactions-page {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  &.slate-theme {
+    .page-header h2 {
+      color: #475569;
+    }
+  }
+
+  .page-header {
+    margin-bottom: 1rem;
+    .header-text {
+      h2 {
+        font-size: 3.2rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+      .subtitle {
+        font-size: 1.6rem;
+        color: var(--text-soft);
+        margin-top: 0.5rem;
+      }
+    }
+  }
+
+  .transactions-content {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: 3rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    transition: var(--transition);
+
+    &:hover {
+      box-shadow: var(--shadow-lg);
+    }
+
+    .transactions-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+
+      .column {
+        .transaction-list {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 6rem 0;
+      color: var(--text-soft);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+
+      i {
+        font-size: 5rem;
+        opacity: 0.2;
+      }
+
+      p {
+        font-size: 1.8rem;
+        font-weight: 500;
+      }
+    }
+
+    .pagination-footer {
+      display: flex;
+      justify-content: center;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+  }
+}
+
+@include respond-below(xl) {
+  .transactions-page {
+    .transactions-content {
+      .transactions-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}
+
+@include respond-below(md) {
+  .transactions-page {
+    .page-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2rem;
+
+      .header-actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+}

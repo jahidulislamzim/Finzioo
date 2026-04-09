@@ -1,0 +1,44 @@
+@use '../../scss/mixins' as *;
+
+.add-budget-form {
+  padding: 1rem;
+  background: transparent;
+
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 2.5rem;
+
+    @include respond-below(sm) {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .full-width {
+      grid-column: 1 / -1;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        font-family: 'Outfit', sans-serif;
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--text-soft);
+        margin-bottom: 0.8rem;
+      }
+    }
+  }
+
+  .form-actions {
+    grid-column: 1 / -1;
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+}

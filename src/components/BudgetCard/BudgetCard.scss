@@ -1,0 +1,230 @@
+.budget-list-card {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent-emerald);
+  }
+
+  &.exceeded {
+    border-color: rgba(239, 68, 68, 0.2);
+
+    &:hover {
+      border-color: var(--accent-rose);
+      box-shadow: 0 12px 24px rgba(239, 68, 68, 0.1);
+    }
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .category-info {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+
+      .category-icon {
+        width: 48px;
+        height: 48px;
+        background: var(--surface);
+        border-radius: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        color: var(--accent-emerald);
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--border-subtle);
+      }
+
+      .category-text {
+        .name {
+          font-size: 1.8rem;
+          font-weight: 700;
+          color: var(--text-main);
+          font-family: 'Outfit', sans-serif;
+          margin-bottom: 0.2rem;
+        }
+
+        .status-label {
+          font-size: 1.1rem;
+          font-weight: 600;
+          color: var(--text-soft);
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+
+          &::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-emerald);
+          }
+        }
+      }
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 0.8rem;
+
+      .action-btn {
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        border: 1px solid var(--border-subtle);
+        background: var(--surface);
+        color: var(--text-soft);
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: var(--transition);
+
+        &:hover {
+          color: white;
+          transform: translateY(-2px);
+        }
+
+        &.edit:hover {
+          background: var(--accent-violet);
+          border-color: var(--accent-violet);
+        }
+
+        &.delete:hover {
+          background: var(--accent-rose);
+          border-color: var(--accent-rose);
+        }
+      }
+    }
+  }
+
+  .card-body {
+    .progress-section {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 1.5rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+
+      .progress-stats {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        .stat {
+          display: flex;
+          flex-direction: column;
+
+          .label {
+            font-size: 1rem;
+            color: var(--text-soft);
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+          }
+
+          .value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-main);
+            font-family: 'Outfit', sans-serif;
+
+            &.spent {
+              color: var(--accent-emerald);
+            }
+
+            &.limit {
+              color: var(--text-main);
+              opacity: 0.9;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .card-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    .remaining-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .label {
+        font-size: 1.3rem;
+        color: var(--text-soft);
+        font-weight: 500;
+      }
+
+      .value {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--text-main);
+        font-family: 'Outfit', sans-serif;
+      }
+    }
+
+    .progress-bar-mini {
+      height: 8px;
+      background: var(--bg-primary);
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+
+      .fill {
+        height: 100%;
+        border-radius: 4px;
+        transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+      }
+    }
+  }
+
+  /* Exceeded overrides */
+  &.exceeded {
+    .category-info .category-icon {
+      color: var(--accent-rose);
+      border-color: rgba(239, 68, 68, 0.2);
+    }
+
+    .category-info .category-text .status-label {
+      color: var(--accent-rose);
+
+      &::before {
+        background: var(--accent-rose);
+        box-shadow: 0 0 8px var(--accent-rose);
+      }
+    }
+
+    .card-body .progress-section .progress-stats .stat .value.spent {
+      color: var(--accent-rose);
+    }
+
+    .card-footer .progress-bar-mini .fill {
+      box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+    }
+  }
+}

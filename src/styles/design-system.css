@@ -1,0 +1,72 @@
+:root {
+  /* Light Mode Palette - Soft & Clean */
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f1f5f9;
+  
+  --surface: #ffffff;
+  --surface-hover: #f1f5f9;
+  
+  --border-subtle: #e2e8f0;
+  --border-medium: #cbd5e1;
+  
+  --text-main: #1e293b;
+  --text-soft: #64748b;
+  --text-muted: #94a3b8;
+  --text-on-accent: #ffffff;
+  
+  /* Relevant Page Accents (Soft Mode) */
+  --accent-azure: #3b82f6;      /* Accounts */
+  --accent-emerald: #10b981;    /* Budgets/Income */
+  --accent-rose: #ef4444;       /* Expenses */
+  --accent-amber: #f59e0b;      /* Loans */
+  --accent-violet: #8b5cf6;     /* Dashboard/Global */
+  --accent-slate: #475569;      /* Settings/Transfers */
+  
+  /* Shadows & Depth */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 50px -12px rgba(0, 0, 0, 0.08);
+  --shadow-glow: 0 0 15px rgba(92, 103, 232, 0.2);
+  
+  /* Spacing & Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 28px;
+  --radius-full: 9999px;
+
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme='dark'] {
+  /* Dark Mode Palette - Deep & Elegant */
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  
+  --surface: #1e293b;
+  --surface-hover: #334155;
+  
+  --border-subtle: #334155;
+  --border-medium: #475569;
+  
+  --text-main: #f1f5f9;
+  --text-soft: #94a3b8;
+  --text-muted: #64748b;
+  --text-on-accent: #ffffff;
+  
+  /* Darker shadows for depth */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 20px 50px -12px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px rgba(92, 103, 232, 0.4);
+
+  /* Transparent glass mode adjustments */
+  --glass-bg: rgba(30, 41, 59, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme='light'] {
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.2);
+}

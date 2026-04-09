@@ -1,0 +1,143 @@
+@use '../../scss/mixins' as *;
+
+.transaction-card-item {
+  display: flex;
+  align-items: center;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  padding: 1.2rem 1.5rem;
+  gap: 1.5rem;
+  transition: var(--transition);
+  border: 1px solid transparent;
+  list-style: none;
+
+  &:hover {
+    background: var(--surface-hover);
+    border-color: var(--border-subtle);
+    transform: translateX(5px);
+  }
+
+  .transaction-date-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 45px;
+    height: 45px;
+    background: var(--surface);
+    border-radius: 10px;
+    box-shadow: var(--shadow-sm);
+    
+    .month {
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      line-height: 1;
+    }
+    
+    .day {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.2;
+    }
+  }
+
+  .transaction-main-info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    .icon-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--bg-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--text-soft);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .text-details {
+      display: flex;
+      flex-direction: column;
+      
+      .transaction-notes {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: var(--text-main);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 250px;
+      }
+
+      .transaction-meta {
+        font-size: 1.1rem;
+        color: var(--text-soft);
+        font-weight: 500;
+        margin-top: 0.2rem;
+      }
+    }
+  }
+
+  .transaction-amount-section {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    .amount {
+      font-size: 1.5rem;
+      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+
+      &.income { color: var(--accent-emerald); }
+      &.expense { color: var(--accent-rose); }
+      &.transfer { color: var(--accent-azure); }
+      &.loan { color: var(--accent-amber); }
+    }
+
+    .item-actions {
+      .action-dot {
+        background: none;
+        border: none;
+        color: var(--text-soft);
+        cursor: pointer;
+        padding: 5px;
+        transition: var(--transition);
+        border-radius: 50%;
+
+        &:hover {
+          color: var(--text-main);
+          background: var(--bg-primary);
+        }
+      }
+    }
+  }
+}
+
+@include respond-below(sm) {
+  .transaction-card-item {
+    padding: 1rem;
+    gap: 1rem;
+    
+    .transaction-date-badge {
+      min-width: 40px;
+      height: 40px;
+    }
+
+    .transaction-main-info {
+      .icon-badge {
+        display: none;
+      }
+      .text-details .transaction-notes {
+        max-width: 150px;
+      }
+    }
+  }
+}

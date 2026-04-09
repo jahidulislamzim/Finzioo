@@ -1,0 +1,54 @@
+.transactions {
+  margin-top: 2rem;
+
+  input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    background-color: $dark-card-bg-color;
+    color: $text-color;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead {
+      th {
+        text-align: left;
+        padding: 1rem;
+        background-color: $dark-card-bg-color;
+        cursor: pointer;
+        position: relative;
+        border-bottom: 2px solid $border-color;
+
+        &.ascending::after {
+          content: ' ▲';
+          position: absolute;
+          right: 1rem;
+        }
+
+        &.descending::after {
+          content: ' ▼';
+          position: absolute;
+          right: 1rem;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        &:nth-child(even) {
+          background-color: $dark-bg-color;
+        }
+
+        td {
+          padding: 1rem;
+          border-bottom: 1px solid $border-color;
+        }
+      }
+    }
+  }
+}

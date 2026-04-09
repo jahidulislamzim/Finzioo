@@ -1,0 +1,19 @@
+@use '../../scss/mixins' as *;
+@use '../../scss' as *;
+
+.account-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: $spacing-unit * 2;
+  padding: $spacing-unit * 2;
+  margin-top: $spacing-unit * 2;
+  justify-items: center;
+  overflow-y: auto; /* Changed from hidden to auto */
+}
+
+@include respond-below(md) {
+  .account-list {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+}
